@@ -1,0 +1,6 @@
+*.log
+*.temp
+/.vscode
+.DS_Store
+.idea
+.lock
