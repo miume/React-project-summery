@@ -537,6 +537,50 @@
 
   
 
-### 深拷贝、浅拷贝问题
+### 2020-03-01
 
-- js数据类型分为基本数据类型和引用数据类型
+- #### 多选框的使用
+
+  ```js
+  import React from 'react';
+  import {Checkbox} from 'antd';
+  const {CheckboxGroup} = Checkbox.Group;
+  
+  class Practice extends React.Component() {
+    render() {
+      return (
+        <div>
+          <CheckboxGroup options={selectAllItems} value={selectedItems} 
+    onChange={this.checkBoxChange}>
+      
+        </div>
+  		)
+    }
+  }
+  
+  /**如果选取的数据只有名字
+  * data = ['apple','pea','orange','watermelon']
+  * 则使用以下形式
+  * options：表示所有数据，例如：selectAllItems = ['apple','pea','orange','watermelon']
+  * value：表示所选中数据，例如：selectedItems = ['apple']
+  * onChange：监控多选框的变化
+  */
+  <CheckboxGroup options={selectAllItems} value={selectedItems} 
+  onChange={this.checkBoxChange}>
+    
+  /**
+  * 如果数据形式为 data = [{id: 1, name: 'A厂'},{id: 2, name: 'B厂'},{id: 1, name: 'C厂'}]
+  * 则使用以下形式 
+  * span=8：表示每行显示三个checkbox
+  */
+    <CheckboxGroup style={{width: "100%"}} value = {supplierId} onChange={this.supplierIdChange.bind(this)}>
+                          {
+                              data.length ? data.map(p =>
+                                  <Col key={p.id} span={8}>
+                                      <Checkbox value={p.id}>{p.name}</Checkbox>
+                                  </Col>):null
+                          }
+                          </CheckboxGroup>
+  ```
+
+  
